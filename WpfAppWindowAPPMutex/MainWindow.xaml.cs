@@ -29,8 +29,29 @@ namespace WpfAppWindowAPPMutex
         private NumberThreadWorker worker;
         private List<NumberThreadWorker.Report> reports;
         public event Action<List<NumberThreadWorker.Report>> SendReport;
-        public MainWindow()
+
+        //variables for task 3 , limited to running up to 3 copies
+        private static Mutex mutex;
+        private string[] guids = new string[3] { "{84079a08-eb1c-4045-941e-08a5f337d471}", "{84079a08-eb1c-4045-941e-08a5f337d472}", "{84079a08-eb1c-4045-941e-08a5f337d473}" };
+
+    public MainWindow()
         {
+            bool createdNew;
+            for(int i = 0; i < 3; i++)
+            {
+                mutex = new Mutex(true, guids[i],out createdNew);
+                if (!createdNew)
+                {
+                    if (i == 2)
+                    {
+                        System.Windows.Forms.MessageBox.Show("Уже запущено максимальное количество копий приложения.", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Close();
+                        return;
+                    }
+
+                }
+                else break;
+            }
             InitializeComponent();
             listboxLogs.Visibility = Visibility.Hidden;
             labelLogs.Visibility = Visibility.Hidden;
