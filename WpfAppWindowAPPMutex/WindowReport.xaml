@@ -1,0 +1,18 @@
+﻿<Window x:Class="WpfAppWindowAPPMutex.WindowReport"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppWindowAPPMutex"
+        mc:Ignorable="d"
+        Title="WindowReport" Height="555" Width="900">
+    <Canvas>
+        <Label Name="labelNumberGeneration" Content="Label" Canvas.Left="20" Canvas.Top="35" HorizontalAlignment="Left" VerticalAlignment="Center" Width="210"/>
+        <Label Name="labelSearchPrime" Content="Label" Canvas.Left="300" Canvas.Top="35" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label Name="labelSearchEndSeven" Content="Label" Canvas.Left="600" Canvas.Top="35"/>
+        <ListBox Name="listboxNumberGeneration" Height="396" Width="186" d:ItemsSource="{d:SampleData ItemCount=0}" HorizontalAlignment="Left" Canvas.Left="10" VerticalAlignment="Center" Canvas.Top="111"/>
+        <ListBox Name="listboxSearchPrime" Height="396" Width="186" d:ItemsSource="{d:SampleData ItemCount=0}" Canvas.Left="290" Canvas.Top="111" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <ListBox Name="listboxSearchEndSeven" Height="396" Width="186" d:ItemsSource="{d:SampleData ItemCount=0}" Canvas.Left="590" Canvas.Top="110" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+    </Canvas>
+
+</Window>
