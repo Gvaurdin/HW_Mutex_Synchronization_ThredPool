@@ -5,14 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp_The_Casino_app"
         mc:Ignorable="d"
-        Title="Casino" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <TextBox x:Name="OutputTextBox" Grid.Row="0" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" IsReadOnly="True" />
-        <Button Content="Restart" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Restart_Click" />
-    </Grid>
-
+        Title="Casino" Height="600" Width="820" Icon="/iconCasino.ico">
+    <Canvas x:Name="canvasCasino">
+        <Canvas.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF0B120B" Offset="1"/>
+                <GradientStop Color="#FF94D498" Offset="0.493"/>
+            </LinearGradientBrush>
+        </Canvas.Background>
+        <Image x:Name="imageTitleCasino" Height="139" Canvas.Left="1" Canvas.Top="3" Width="822" HorizontalAlignment="Center" VerticalAlignment="Top" Source="/imageCasino.jpg" Stretch="Fill"/>
+        <Button x:Name="buttonStart" Content="Start game" Canvas.Left="339" Canvas.Top="487" Height="64" Width="130" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Click="buttonStart_Click_1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF2FBDB3" Offset="0.507"/>
+                    <GradientStop Color="#FF060C0B" Offset="0.997"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <ListBox x:Name="listboxLogs" Height="336" Width="818" d:ItemsSource="{d:SampleData ItemCount=0}" HorizontalAlignment="Left" Canvas.Top="144" VerticalAlignment="Center" FontSize="14" Foreground="#FFF3EFEF">
+            <ListBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF120E0E" Offset="1"/>
+                    <GradientStop Color="#FF4A4646" Offset="0.523"/>
+                </LinearGradientBrush>
+            </ListBox.Background>
+        </ListBox>
+        <Label x:Name="labelPlayersInQueue" Content="Players in the queue :" Canvas.Left="494" Canvas.Top="510" HorizontalAlignment="Left" VerticalAlignment="Center" Width="167" FontSize="16"/>
+        <Label x:Name="labelWaitingPlayers" Content="0" Canvas.Left="669" Canvas.Top="510" FontSize="16"/>
+    </Canvas>
 </Window>
